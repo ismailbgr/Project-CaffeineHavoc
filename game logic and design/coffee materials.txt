@@ -1,0 +1,55 @@
+***ingredients:
+-)coffee cup/lid/straw/paper filter
+-)water
+-)coffee bean/powder
+-)milk (vegan options)
+-)cream(?)
+-)ice cream(?)
+-)ice
+-)sugar
+-)syrups (chocolate, caramel, vanilla)
+-)toppings
+
+***machines:
+-)espresso machine
+-)drip coffee maker
+-)french press
+-)cold brew maker
+-)milk frother
+-)ice shaver
+-)syrup dispenser
+-)coffee grinder
+-)kettle
+
+***interactions:
+-)fridge + water --> cold water
+-)kettle + water --> hot water
+-)coffee grinder + coffee beans --> ground coffee
+-)espresso machine + ground coffee + hot water --> espresso shot
+-)drip coffee maker + ground coffee + cold water --> brewed coffee
+-)french press + ground coffee + hot water --> french press coffee
+-)cold brew maker + ground coffee + cold water --> cold brew coffee concantrate
+-)milk + milk frother --> frothed milk
+-)ice shaver + ice --> shaved ice
+-)syrup dispenser + syrup --> flavored syrup
+
+***Coffees:
+-)Classic Espresso Shot
+-)Drip Brewed Coffee
+-)French Press Coffee
+-)Cold Brew Concentrate
+-)Vanilla Latte
+-)Iced Caramel Macchiato
+-)Iced Vanilla Latte
+-)Mocha Frappuccino
+-)Caramel Macchiato
+-)Affogato
+-)Caramel Iced Coffee
+-)Caramel Macadamia Latte
+-)Iced Caramel Vanilla Latte
+-)Hazelnut Mocha
+-)Coconut Iced Mocha
+-)Pumpkin Spice Latte
+-)Caramelized Honey Latte
+-)Mint Chocolate Chip Frappe
+-)Caramel Apple Latte

@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: 658ae5ab2f8585c4797692b6737ee2b1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Counter Tall
+    100004: Counter Tall Corner_01
+    100006: Counter Tall Corner_02
+    100008: Counter Top
+    100010: Counter Top.001
+    100012: Counter Top.002
+    100014: IntExt_BrickEdge_C&T_03
+    100016: IntExt_Window_CornerFiller_01
+    100018: IntExt_Window_LongCornerFiller_01
+    100020: Shelf
+    100022: Shelf.000
+    100024: Shelf.002
+    100026: Shelf.003
+    100028: Shelf.004
+    100030: Shelf.005
+    100032: Shelf.006
+    100034: Shelf.008
+    100036: Shelf.009
+    100038: Shelf.010
+    100040: Shelf.011
+    100042: Shelf.012
+    100044: Shelf.016
+    100046: Shelf.017
+    100048: Shelf.018
+    100050: Shelf.019
+    100052: Shelf.020
+    100054: Shelf.021
+    100056: Shelf.022
+    100058: Shelf.023
+    100060: Shelf.027
+    100062: Shelf.030
+    100064: Shelf.031
+    100066: Shelf_01
+    100068: Shelf_02
+    100070: Shelf_03
+    100072: Side Table Tall
+    100074: Side Table Tall Corner_01
+    100076: Side Table Tall Corner_02
+    100078: Table Top.001
+    100080: Table Top.002
+    100082: Table Top.004
+    100084: Wall Shelf Corner_01
+    100086: Wall Shelf Corner_02
+    100088: Wall Shelf Short
+    400000: //RootNode
+    400002: Counter Tall
+    400004: Counter Tall Corner_01
+    400006: Counter Tall Corner_02
+    400008: Counter Top
+    400010: Counter Top.001
+    400012: Counter Top.002
+    400014: IntExt_BrickEdge_C&T_03
+    400016: IntExt_Window_CornerFiller_01
+    400018: IntExt_Window_LongCornerFiller_01
+    400020: Shelf
+    400022: Shelf.000
+    400024: Shelf.002
+    400026: Shelf.003
+    400028: Shelf.004
+    400030: Shelf.005
+    400032: Shelf.006
+    400034: Shelf.008
+    400036: Shelf.009
+    400038: Shelf.010
+    400040: Shelf.011
+    400042: Shelf.012
+    400044: Shelf.016
+    400046: Shelf.017
+    400048: Shelf.018
+    400050: Shelf.019
+    400052: Shelf.020
+    400054: Shelf.021
+    400056: Shelf.022
+    400058: Shelf.023
+    400060: Shelf.027
+    400062: Shelf.030
+    400064: Shelf.031
+    400066: Shelf_01
+    400068: Shelf_02
+    400070: Shelf_03
+    400072: Side Table Tall
+    400074: Side Table Tall Corner_01
+    400076: Side Table Tall Corner_02
+    400078: Table Top.001
+    400080: Table Top.002
+    400082: Table Top.004
+    400084: Wall Shelf Corner_01
+    400086: Wall Shelf Corner_02
+    400088: Wall Shelf Short
+    2100000: No Name
+    2300000: Counter Tall
+    2300002: Counter Tall Corner_01
+    2300004: Counter Tall Corner_02
+    2300006: Counter Top
+    2300008: Counter Top.001
+    2300010: Counter Top.002
+    2300012: IntExt_BrickEdge_C&T_03
+    2300014: IntExt_Window_CornerFiller_01
+    2300016: IntExt_Window_LongCornerFiller_01
+    2300018: Shelf
+    2300020: Shelf.000
+    2300022: Shelf.002
+    2300024: Shelf.003
+    2300026: Shelf.004
+    2300028: Shelf.005
+    2300030: Shelf.006
+    2300032: Shelf.008
+    2300034: Shelf.009
+    2300036: Shelf.010
+    2300038: Shelf.011
+    2300040: Shelf.012
+    2300042: Shelf.016
+    2300044: Shelf.017
+    2300046: Shelf.018
+    2300048: Shelf.019
+    2300050: Shelf.020
+    2300052: Shelf.021
+    2300054: Shelf.022
+    2300056: Shelf.023
+    2300058: Shelf.027
+    2300060: Shelf.030
+    2300062: Shelf.031
+    2300064: Shelf_01
+    2300066: Shelf_02
+    2300068: Shelf_03
+    2300070: Side Table Tall
+    2300072: Side Table Tall Corner_01
+    2300074: Side Table Tall Corner_02
+    2300076: Table Top.001
+    2300078: Table Top.002
+    2300080: Table Top.004
+    2300082: Wall Shelf Corner_01
+    2300084: Wall Shelf Corner_02
+    2300086: Wall Shelf Short
+    3300000: Counter Tall
+    3300002: Counter Tall Corner_01
+    3300004: Counter Tall Corner_02
+    3300006: Counter Top
+    3300008: Counter Top.001
+    3300010: Counter Top.002
+    3300012: IntExt_BrickEdge_C&T_03
+    3300014: IntExt_Window_CornerFiller_01
+    3300016: IntExt_Window_LongCornerFiller_01
+    3300018: Shelf
+    3300020: Shelf.000
+    3300022: Shelf.002
+    3300024: Shelf.003
+    3300026: Shelf.004
+    3300028: Shelf.005
+    3300030: Shelf.006
+    3300032: Shelf.008
+    3300034: Shelf.009
+    3300036: Shelf.010
+    3300038: Shelf.011
+    3300040: Shelf.012
+    3300042: Shelf.016
+    3300044: Shelf.017
+    3300046: Shelf.018
+    3300048: Shelf.019
+    3300050: Shelf.020
+    3300052: Shelf.021
+    3300054: Shelf.022
+    3300056: Shelf.023
+    3300058: Shelf.027
+    3300060: Shelf.030
+    3300062: Shelf.031
+    3300064: Shelf_01
+    3300066: Shelf_02
+    3300068: Shelf_03
+    3300070: Side Table Tall
+    3300072: Side Table Tall Corner_01
+    3300074: Side Table Tall Corner_02
+    3300076: Table Top.001
+    3300078: Table Top.002
+    3300080: Table Top.004
+    3300082: Wall Shelf Corner_01
+    3300084: Wall Shelf Corner_02
+    3300086: Wall Shelf Short
+    4300000: Side Table Tall Corner_02
+    4300002: Table Top.004
+    4300004: Side Table Tall Corner_01
+    4300006: Table Top.002
+    4300008: Counter Tall Corner_01
+    4300010: Counter Top.002
+    4300012: Shelf.027
+    4300014: Counter Tall
+    4300016: Counter Top
+    4300018: Shelf.031
+    4300020: Counter Tall Corner_02
+    4300022: Shelf.030
+    4300024: Counter Top.001
+    4300026: Side Table Tall
+    4300028: Table Top.001
+    4300030: Wall Shelf Short
+    4300032: Shelf.023
+    4300034: Shelf.022
+    4300036: Shelf.021
+    4300038: Shelf.020
+    4300040: Wall Shelf Corner_02
+    4300042: Shelf.016
+    4300044: Shelf.017
+    4300046: Shelf.018
+    4300048: Shelf.019
+    4300050: Shelf.012
+    4300052: Shelf.011
+    4300054: Shelf.010
+    4300056: Shelf.009
+    4300058: Shelf_03
+    4300060: Shelf_02
+    4300062: IntExt_Window_LongCornerFiller_01
+    4300064: IntExt_Window_CornerFiller_01
+    4300066: IntExt_BrickEdge_C&T_03
+    4300068: Shelf_01
+    4300070: Wall Shelf Corner_01
+    4300072: Shelf
+    4300074: Shelf.006
+    4300076: Shelf.008
+    4300078: Shelf.000
+    4300080: Shelf.002
+    4300082: Shelf.003
+    4300084: Shelf.004
+    4300086: Shelf.005
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

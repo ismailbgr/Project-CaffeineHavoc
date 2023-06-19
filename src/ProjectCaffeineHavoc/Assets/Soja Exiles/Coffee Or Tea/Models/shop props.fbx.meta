@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: b5d96789f1e69b54686fa49e2a84b384
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cap
+    100002: Cap.001
+    100004: Cap.002
+    100006: Container
+    100008: Counter Short Service_02
+    100010: Creamer Base_01
+    100012: Creamer Base_02
+    100014: Door
+    100016: Door.001
+    100018: Knob
+    100020: Knob.001
+    100022: Mid
+    100024: Mid.001
+    100026: Napkin Holder
+    100028: Napkins
+    100030: //RootNode
+    100032: Spoon
+    100034: Spoon Container
+    100036: Sugar
+    100038: Trash Can
+    100040: Trash Can.001
+    100042: Trash Chute
+    100044: Trash Chute.001
+    400000: Cap
+    400002: Cap.001
+    400004: Cap.002
+    400006: Container
+    400008: Counter Short Service_02
+    400010: Creamer Base_01
+    400012: Creamer Base_02
+    400014: Door
+    400016: Door.001
+    400018: Knob
+    400020: Knob.001
+    400022: Mid
+    400024: Mid.001
+    400026: Napkin Holder
+    400028: Napkins
+    400030: //RootNode
+    400032: Spoon
+    400034: Spoon Container
+    400036: Sugar
+    400038: Trash Can
+    400040: Trash Can.001
+    400042: Trash Chute
+    400044: Trash Chute.001
+    2100000: No Name
+    2300000: Cap
+    2300002: Cap.001
+    2300004: Cap.002
+    2300006: Container
+    2300008: Counter Short Service_02
+    2300010: Creamer Base_01
+    2300012: Creamer Base_02
+    2300014: Door
+    2300016: Door.001
+    2300018: Knob
+    2300020: Knob.001
+    2300022: Mid
+    2300024: Mid.001
+    2300026: Napkin Holder
+    2300028: Napkins
+    2300030: Spoon
+    2300032: Spoon Container
+    2300034: Sugar
+    2300036: Trash Can
+    2300038: Trash Can.001
+    2300040: Trash Chute
+    2300042: Trash Chute.001
+    3300000: Cap
+    3300002: Cap.001
+    3300004: Cap.002
+    3300006: Container
+    3300008: Counter Short Service_02
+    3300010: Creamer Base_01
+    3300012: Creamer Base_02
+    3300014: Door
+    3300016: Door.001
+    3300018: Knob
+    3300020: Knob.001
+    3300022: Mid
+    3300024: Mid.001
+    3300026: Napkin Holder
+    3300028: Napkins
+    3300030: Spoon
+    3300032: Spoon Container
+    3300034: Sugar
+    3300036: Trash Can
+    3300038: Trash Can.001
+    3300040: Trash Chute
+    3300042: Trash Chute.001
+    4300000: Spoon Container
+    4300002: Creamer Base_02
+    4300004: Cap
+    4300006: Mid.001
+    4300008: Creamer Base_01
+    4300010: Cap.002
+    4300012: Mid
+    4300014: Container
+    4300016: Sugar
+    4300018: Cap.001
+    4300020: Napkin Holder
+    4300022: Napkins
+    4300024: Spoon
+    4300026: Counter Short Service_02
+    4300028: Trash Chute.001
+    4300030: Trash Chute
+    4300032: Trash Can.001
+    4300034: Trash Can
+    4300036: Door
+    4300038: Knob
+    4300040: Door.001
+    4300042: Knob.001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

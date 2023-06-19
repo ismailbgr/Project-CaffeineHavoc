@@ -1,0 +1,262 @@
+fileFormatVersion: 2
+guid: 237de1205bc280c449aaba69a61529e9
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bulb
+    100002: Ceiling Center Piece
+    100004: //RootNode
+    100006: Counter Short Coffee
+    100008: Counter Tall Coffee
+    100010: Counter Top
+    100012: Counter Top.001
+    100014: Leg Short
+    100016: Leg Short.001
+    100018: Leg Short.002
+    100020: Leg Short.003
+    100022: Leg.001
+    100024: Leg.002
+    100026: Leg.003
+    100028: Leg.006
+    100030: Light Pole Coffee
+    100032: Seat Back
+    100034: Seat Back Round
+    100036: Seat Back.001
+    100038: Seat Coffee
+    100040: Seat Coffee Center
+    100042: Seat Coffee Long
+    100044: Seat Coffee Round
+    100046: Seat Coffee Stool
+    100048: Seat Top
+    100050: Shelf
+    100052: Shelf.001
+    100054: Shelf.002
+    100056: Side Table Tall
+    100058: Socket
+    100060: Table Stand Coffee
+    100062: Table Stand Long Coffee
+    100064: Table Top
+    100066: Table Top.001
+    100068: Table top.001
+    400000: Bulb
+    400002: Ceiling Center Piece
+    400004: //RootNode
+    400006: Counter Short Coffee
+    400008: Counter Tall Coffee
+    400010: Counter Top
+    400012: Counter Top.001
+    400014: Leg Short
+    400016: Leg Short.001
+    400018: Leg Short.002
+    400020: Leg Short.003
+    400022: Leg.001
+    400024: Leg.002
+    400026: Leg.003
+    400028: Leg.006
+    400030: Light Pole Coffee
+    400032: Seat Back
+    400034: Seat Back Round
+    400036: Seat Back.001
+    400038: Seat Coffee
+    400040: Seat Coffee Center
+    400042: Seat Coffee Long
+    400044: Seat Coffee Round
+    400046: Seat Coffee Stool
+    400048: Seat Top
+    400050: Shelf
+    400052: Shelf.001
+    400054: Shelf.002
+    400056: Side Table Tall
+    400058: Socket
+    400060: Table Stand Coffee
+    400062: Table Stand Long Coffee
+    400064: Table Top
+    400066: Table Top.001
+    400068: Table top.001
+    2100000: No Name
+    2100002: Material.001
+    2300000: Bulb
+    2300002: Ceiling Center Piece
+    2300004: Counter Short Coffee
+    2300006: Counter Tall Coffee
+    2300008: Counter Top
+    2300010: Counter Top.001
+    2300012: Leg Short
+    2300014: Leg Short.001
+    2300016: Leg Short.002
+    2300018: Leg Short.003
+    2300020: Leg.001
+    2300022: Leg.002
+    2300024: Leg.003
+    2300026: Leg.006
+    2300028: Light Pole Coffee
+    2300030: Seat Back
+    2300032: Seat Back Round
+    2300034: Seat Back.001
+    2300036: Seat Coffee
+    2300038: Seat Coffee Center
+    2300040: Seat Coffee Long
+    2300042: Seat Coffee Round
+    2300044: Seat Coffee Stool
+    2300046: Seat Top
+    2300048: Shelf
+    2300050: Shelf.001
+    2300052: Shelf.002
+    2300054: Side Table Tall
+    2300056: Socket
+    2300058: Table Stand Coffee
+    2300060: Table Stand Long Coffee
+    2300062: Table Top
+    2300064: Table Top.001
+    2300066: Table top.001
+    3300000: Bulb
+    3300002: Ceiling Center Piece
+    3300004: Counter Short Coffee
+    3300006: Counter Tall Coffee
+    3300008: Counter Top
+    3300010: Counter Top.001
+    3300012: Leg Short
+    3300014: Leg Short.001
+    3300016: Leg Short.002
+    3300018: Leg Short.003
+    3300020: Leg.001
+    3300022: Leg.002
+    3300024: Leg.003
+    3300026: Leg.006
+    3300028: Light Pole Coffee
+    3300030: Seat Back
+    3300032: Seat Back Round
+    3300034: Seat Back.001
+    3300036: Seat Coffee
+    3300038: Seat Coffee Center
+    3300040: Seat Coffee Long
+    3300042: Seat Coffee Round
+    3300044: Seat Coffee Stool
+    3300046: Seat Top
+    3300048: Shelf
+    3300050: Shelf.001
+    3300052: Shelf.002
+    3300054: Side Table Tall
+    3300056: Socket
+    3300058: Table Stand Coffee
+    3300060: Table Stand Long Coffee
+    3300062: Table Top
+    3300064: Table Top.001
+    3300066: Table top.001
+    4300000: Seat Coffee
+    4300002: Leg.006
+    4300004: Leg.002
+    4300006: Leg.001
+    4300008: Leg.003
+    4300010: Seat Back.001
+    4300012: Table Stand Long Coffee
+    4300014: Table Top
+    4300016: Table Stand Coffee
+    4300018: Table top.001
+    4300020: Seat Coffee Long
+    4300022: Seat Back
+    4300024: Leg Short.003
+    4300026: Leg Short.002
+    4300028: Leg Short.001
+    4300030: Leg Short
+    4300032: Side Table Tall
+    4300034: Table Top.001
+    4300036: Seat Coffee Stool
+    4300038: Seat Top
+    4300040: Counter Short Coffee
+    4300042: Shelf.002
+    4300044: Counter Top.001
+    4300046: Counter Tall Coffee
+    4300048: Counter Top
+    4300050: Shelf.001
+    4300052: Shelf
+    4300054: Light Pole Coffee
+    4300056: Socket
+    4300058: Bulb
+    4300060: Ceiling Center Piece
+    4300062: Seat Coffee Center
+    4300064: Seat Coffee Round
+    4300066: Seat Back Round
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

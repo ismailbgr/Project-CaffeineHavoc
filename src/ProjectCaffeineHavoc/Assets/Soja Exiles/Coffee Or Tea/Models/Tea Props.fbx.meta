@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 7426a47d1a47dab42ba943b6d500cc77
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cap
+    100002: Label
+    100004: Liquid
+    100006: Liquid.001
+    100008: Macaroon
+    100010: Metal Handle
+    100012: Metal Handle Tri Set
+    100014: Metal Plate
+    100016: Mini Pot Cap
+    100018: Plate Bottom
+    100020: Plate Middle
+    100022: Plate Top
+    100024: String
+    100026: Tea Bag
+    100028: Tea Cup
+    100030: Tea Cup Mini
+    100032: Tea Plate
+    100034: Tea Pot
+    100036: Tea Pot Mini
+    100038: //RootNode
+    100040: Tea Set Mini Holder
+    400000: Cap
+    400002: Label
+    400004: Liquid
+    400006: Liquid.001
+    400008: Macaroon
+    400010: Metal Handle
+    400012: Metal Handle Tri Set
+    400014: Metal Plate
+    400016: Mini Pot Cap
+    400018: Plate Bottom
+    400020: Plate Middle
+    400022: Plate Top
+    400024: String
+    400026: Tea Bag
+    400028: Tea Cup
+    400030: Tea Cup Mini
+    400032: Tea Plate
+    400034: Tea Pot
+    400036: Tea Pot Mini
+    400038: //RootNode
+    400040: Tea Set Mini Holder
+    2100000: No Name
+    2300000: Cap
+    2300002: Label
+    2300004: Liquid
+    2300006: Liquid.001
+    2300008: Macaroon
+    2300010: Metal Handle
+    2300012: Metal Handle Tri Set
+    2300014: Metal Plate
+    2300016: Mini Pot Cap
+    2300018: Plate Bottom
+    2300020: Plate Middle
+    2300022: Plate Top
+    2300024: String
+    2300026: Tea Bag
+    2300028: Tea Cup
+    2300030: Tea Cup Mini
+    2300032: Tea Plate
+    2300034: Tea Pot
+    2300036: Tea Pot Mini
+    2300038: Tea Set Mini Holder
+    3300000: Cap
+    3300002: Label
+    3300004: Liquid
+    3300006: Liquid.001
+    3300008: Macaroon
+    3300010: Metal Handle
+    3300012: Metal Handle Tri Set
+    3300014: Metal Plate
+    3300016: Mini Pot Cap
+    3300018: Plate Bottom
+    3300020: Plate Middle
+    3300022: Plate Top
+    3300024: String
+    3300026: Tea Bag
+    3300028: Tea Cup
+    3300030: Tea Cup Mini
+    3300032: Tea Plate
+    3300034: Tea Pot
+    3300036: Tea Pot Mini
+    3300038: Tea Set Mini Holder
+    4300000: Tea Bag
+    4300002: String
+    4300004: Label
+    4300006: Tea Cup
+    4300008: Liquid.001
+    4300010: Tea Pot Mini
+    4300012: Mini Pot Cap
+    4300014: Tea Cup Mini
+    4300016: Liquid
+    4300018: Macaroon
+    4300020: Tea Pot
+    4300022: Cap
+    4300024: Metal Handle Tri Set
+    4300026: Plate Bottom
+    4300028: Plate Middle
+    4300030: Plate Top
+    4300032: Tea Plate
+    4300034: Tea Set Mini Holder
+    4300036: Metal Handle
+    4300038: Metal Plate
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,6 +7,7 @@ public class CupGlassContainerScript : MonoBehaviour
     // List of coffeeHolders to be from
     public enum coffeeHolders { Cup, Glass, Container };
     public coffeeHolders coffeeHolderType; // what type of coffeeHolders is this object
+    string coffeeName = "";
 
     public HashSet<string> state = new HashSet<string>(); // what does this coffeeholder has as ingradient in it.
 
@@ -60,24 +61,24 @@ public class CupGlassContainerScript : MonoBehaviour
         if (coffeeHolderType == coffeeHolders.Cup || coffeeHolderType == coffeeHolders.Glass)
         {
             if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup" })))
-                Debug.Log("Created Vanilla Latte.");
+                coffeeName = "Vanilla Latte";
             if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup", "Ice" })))
-                Debug.Log("Created Iced Vanilla Latte.");
+                coffeeName = "Iced Vanilla Latte";
             if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk" })))
-                Debug.Log("Created Caramel Macchiato.");
+                coffeeName = "Caramel Macchiato";
             if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
-                Debug.Log("Created Iced Caramel Macchiato.");
+                coffeeName = "Iced Caramel Macchiato";
             if (state.SetEquals(new HashSet<string>(new[] { "VanillaSyrup", "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
-                Debug.Log("Created Iced Caramel Vanilla Latte.");
+                coffeeName = "Iced Caramel Vanilla Latte";
             if (state.SetEquals(new HashSet<string>(new[] { "DripBrewedCoffee", "Milk", "CaramelSyrup", "Ice" })))
-                Debug.Log("Created Caramel Iced Coffee.");
+                coffeeName = "Caramel Iced Coffee";
         }
         else if (coffeeHolderType == coffeeHolders.Container)
         {
             if (state.SetEquals(new HashSet<string>(new[] { "CoffeeGround", "ColdWater" })))
-                Debug.Log("Created Brew Concentrate Container.");
+                coffeeName = "Brew Concentrate Container";
             if (state.SetEquals(new HashSet<string>(new[] { "CoffeeGround", "ColdWater", "Filter" })))
-                Debug.Log("Created Cold Brew.");
+                coffeeName = "Cold Brew";
         }
     }
 

@@ -164,6 +164,7 @@ public class CharacterInteractionScript : MonoBehaviour
 
             coffeeHolderScript = itemCH.GetComponent<CupGlassContainerScript>();
             coffeeHolderScript.addIngradient(itemIngra);
+            coffeeHolderScript.transformToCoffee(); // checking if coffeholder is a coffee
             newItem = itemCH; // store the new created item
             heldItem.transform.SetParent(null); // empty the hend step1
             heldItem = null; // empty the hend step2

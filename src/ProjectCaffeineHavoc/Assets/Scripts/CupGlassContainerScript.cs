@@ -72,6 +72,8 @@ public class CupGlassContainerScript : MonoBehaviour
                 coffeeName = "Iced Caramel Vanilla Latte";
             else if (state.SetEquals(new HashSet<string>(new[] { "DripBrewedCoffee", "Milk", "CaramelSyrup", "Ice" })))
                 coffeeName = "Caramel Iced Coffee";
+            //else if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "ChocolateSyrup", "Ice" })))
+            //    coffeeName = "Mocha Frappuccino"; BLENDER NEEDED SO THIS IS DISABLED FOR NOW
             else
                 coffeeName = "";
         }

@@ -12,6 +12,10 @@ public class CharacterInteractionScript : MonoBehaviour
     private MachineScript useMachineScript;
     private CupGlassContainerScript coffeeHolderScript;
 
+
+    public GameObject testPrefabSpawn;
+
+
     private void Start()
     {
         playerCamera = GameObject.Find("playerCamera").GetComponent<Camera>();
@@ -22,7 +26,18 @@ public class CharacterInteractionScript : MonoBehaviour
     private void Update()
     {
         mouseAction();
-        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Check if heldItem is not null before instantiating a new one
+            if (heldItem == null)
+            {
+                // Instantiate the prefab at the character's position with no rotation
+                heldItem = Instantiate(testPrefabSpawn, transform.position, Quaternion.identity);
+                heldItem.transform.SetParent(transform);
+            }
+        }
+
         if (heldItem != null)
         {
             updateHeldItem();
@@ -46,7 +61,7 @@ public class CharacterInteractionScript : MonoBehaviour
                     //Debug.Log("picking up " + lookingObject);
                     pickUpItem(lookingObject);
                 }
-                    
+
                 else if (lookingObject.CompareTag("Machine"))
                 {
                     //Debug.Log("using " + lookingObject);
@@ -101,8 +116,8 @@ public class CharacterInteractionScript : MonoBehaviour
 
     public void updateHeldItem()
     { // set heldItems position such that it is bottom right corner of the screen for 16:9
-        heldItem.transform.position = playerCamera.transform.position + playerCamera.transform.forward * 0.6f + 
-                                                                        playerCamera.transform.right * 0.4f + 
+        heldItem.transform.position = playerCamera.transform.position + playerCamera.transform.forward * 0.6f +
+                                                                        playerCamera.transform.right * 0.4f +
                                                                         playerCamera.transform.up * -0.3f;
         heldItem.transform.rotation = playerCamera.transform.rotation;
     }
@@ -142,7 +157,7 @@ public class CharacterInteractionScript : MonoBehaviour
             heldItem.transform.position = hit.point + new Vector3(0f, 0.02f, 0f);
             heldItem.transform.rotation = Quaternion.identity;
         }
-    
+
         heldItem.transform.SetParent(null);
         heldItem = null;
     }
@@ -150,7 +165,7 @@ public class CharacterInteractionScript : MonoBehaviour
     private void putInItem(GameObject item1, GameObject item2) // item1: held, item2: looked
     {
         Debug.Log("Merging " + item1 + " and " + item2);
-        
+
         GameObject newItem = null; // item to hold at the end.
         if ((item1.CompareTag("CoffeeHolder") && item2.CompareTag("Ingradient")) || (item1.CompareTag("Ingradient") && item2.CompareTag("CoffeeHolder")))
         { // add ingradient type of items content into coffeeHolder type of item

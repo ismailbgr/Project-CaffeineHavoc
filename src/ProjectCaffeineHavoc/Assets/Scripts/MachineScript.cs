@@ -44,7 +44,7 @@ public class MachineScript : MonoBehaviour
     {
         if (machineType == machines.CoffeeGrinder)
         {
-            Debug.Log("put coffee grounds to player.heldItem"); // how to set prefab to players hand(collider/rigidbody/tag vs de eklenmesi lazým burada)
+            Debug.Log("put coffee grounds to player.heldItem"); // how to set prefab to players hand(collider/rigidbody/tag vs de eklenmesi lazï¿½m burada)
         }
         else if (machineType == machines.IceCloset)
         {
@@ -102,5 +102,7 @@ public class MachineScript : MonoBehaviour
         }
 
         /*if machineType == machines.Blender BLENDER IS DISABLED FOR NOW*/
+
+        heldItemScript.transformToCoffee();
     }
 }

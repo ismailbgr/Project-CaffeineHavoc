@@ -69,12 +69,14 @@ public class CupGlassContainerScript : MonoBehaviour
             coffeeName = "Iced Caramel Macchiato";
         else if (state.SetEquals(new HashSet<string>(new[] { "VanillaSyrup", "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
             coffeeName = "Iced Caramel Vanilla Latte";
-        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Milk", "CaramelSyrup", "Ice" })))
+        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Milk", "CaramelSyrup", "Ice" })) || state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "VeganMilk", "CaramelSyrup", "Ice" })))
             coffeeName = "Caramel Iced Coffee";
         else if (state.SetEquals(new HashSet<string>(new[] { "Espresso"})))
             coffeeName = "Espresso";
         else if (state.SetEquals(new HashSet<string>(new[] { "ColdBrew" })))
             coffeeName = "Cold Brew";
+        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee" })))
+            coffeeName = "Drip Coffee";
         else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Espresso" })))
             coffeeName = "DEBUG Coffee // Anne eli değmiş gibi";
         else

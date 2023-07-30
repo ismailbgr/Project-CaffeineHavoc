@@ -18,6 +18,8 @@ public class CharacterInteractionScript : MonoBehaviour
 
     private void Start()
     {
+        handBook = GameObject.Find("Handbook");
+        handBook.transform.localScale = new Vector3(0, 0, 0);
         playerCamera = GameObject.Find("playerCamera").GetComponent<Camera>();
     }
 
@@ -27,15 +29,23 @@ public class CharacterInteractionScript : MonoBehaviour
     {
         mouseAction();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            // Check if heldItem is not null before instantiating a new one
-            if (heldItem == null)
+            if (isHandBookOpen)
             {
-                // Instantiate the prefab at the character's position with no rotation
-                heldItem = Instantiate(testPrefabSpawn, transform.position, Quaternion.identity);
-                heldItem.transform.SetParent(transform);
+                isHandBookOpen = false;
+                handBook.transform.localScale = new Vector3(0, 0, 0);
             }
+            
+            else
+            {
+                isHandBookOpen = true;
+                handBook.transform.localScale = new Vector3(1, 1, 1);
+            }
+            
+
+
+
         }
 
         if (heldItem != null)

@@ -16,7 +16,8 @@ public class OrderContoller : MonoBehaviour
     "Iced Caramel Vanilla Latte",
     "Caramel Iced Coffee",
     "DEBUG Coffee // Anne eli değmiş gibi",
-    "Cold Brew"
+    "Cold Brew",
+    "Drip Coffee",
     };
 
     public string coffeeName;

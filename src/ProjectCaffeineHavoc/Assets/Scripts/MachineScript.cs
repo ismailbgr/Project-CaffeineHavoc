@@ -50,7 +50,7 @@ public class MachineScript : MonoBehaviour
     {
         if (machineType == machines.Container)
         {
-            heldItemScript.state.Add("Cold Brew");
+            heldItemScript.state.Add("ColdBrew");
         }
         else if (machineType == machines.Kettle)
         {
@@ -89,9 +89,11 @@ public class MachineScript : MonoBehaviour
         {
             //Debug.Log("delete player.heldItem"); // heldItemScript.addIngradient(drip coffee ingradient)
 
-            playerScript.heldItem.transform.SetParent(null);
-            Destroy(playerScript.heldItem);
-            playerScript.heldItem = null;
+            // playerScript.heldItem.transform.SetParent(null);
+            // Destroy(playerScript.heldItem);
+            // playerScript.heldItem = null;
+
+            heldItemScript.state = new HashSet<string>();
         }
 
         else if (machineType == machines.MilkFrother) // froth the milk only if character is holding a coffeeHolder with only milk or veganmilk in it.

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Oat milk (Oatly)
+* source:	https://sketchfab.com/3d-models/oat-milk-oatly-00dd2ae93cf34beb8ef07186b9e8f340
+* author:	virtualtimecapsule (https://sketchfab.com/virtualtimecapsule)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Oat milk (Oatly)" (https://sketchfab.com/3d-models/oat-milk-oatly-00dd2ae93cf34beb8ef07186b9e8f340) by virtualtimecapsule (https://sketchfab.com/virtualtimecapsule) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)

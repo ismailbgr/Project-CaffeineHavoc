@@ -5,7 +5,7 @@ using UnityEngine;
 public class CupGlassContainerScript : MonoBehaviour
 {
     // List of coffeeHolders to be from
-    public enum coffeeHolders { Cup, Glass, Container };
+    public enum coffeeHolders { Cup, Glass};
     public coffeeHolders coffeeHolderType; // what type of coffeeHolders is this object
     public string coffeeName = "";
 
@@ -59,40 +59,26 @@ public class CupGlassContainerScript : MonoBehaviour
     // Bir bardaktaki kar���m�n hangi kahveye d�n��t���n� bulabilmek i�in string coffeeName; diye bir �ey tutulabilir belki.
     public void transformToCoffee()
     { // always checking if any of coffeeHolders created coffe with ingradients it has inside it
-
-        if (coffeeHolderType == coffeeHolders.Cup || coffeeHolderType == coffeeHolders.Glass)
-        {
-            if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup" })))
-                coffeeName = "Vanilla Latte";
-            else if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup", "Ice" })))
-                coffeeName = "Iced Vanilla Latte";
-            else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk" })))
-                coffeeName = "Caramel Macchiato";
-            else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
-                coffeeName = "Iced Caramel Macchiato";
-            else if (state.SetEquals(new HashSet<string>(new[] { "VanillaSyrup", "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
-                coffeeName = "Iced Caramel Vanilla Latte";
-            else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Milk", "CaramelSyrup", "Ice" })))
-                coffeeName = "Caramel Iced Coffee";
-            else if (state.SetEquals(new HashSet<string>(new[] { "Espresso"})))
-                coffeeName = "Espresso";
-            else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Espresso" })))
-                coffeeName = "DEBUG Coffee // Anne eli değmiş gibi";
-            //else if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "ChocolateSyrup", "Ice" })))
-            //    coffeeName = "Mocha Frappuccino"; BLENDER NEEDED SO THIS IS DISABLED FOR NOW
-            else
-                coffeeName = "";
-        }
-        else if (coffeeHolderType == coffeeHolders.Container)
-        {
-            if (state.SetEquals(new HashSet<string>(new[] { "CoffeeGround", "ColdWater" })))
-                coffeeName = "Brew Concentrate Container";
-            else if (state.SetEquals(new HashSet<string>(new[] { "CoffeeGround", "ColdWater", "Filter" })))
-                coffeeName = "Cold Brew";
-            else
-                coffeeName = "";
-        }
+        if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup" })))
+            coffeeName = "Vanilla Latte";
+        else if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup", "Ice" })))
+            coffeeName = "Iced Vanilla Latte";
+        else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk" })))
+            coffeeName = "Caramel Macchiato";
+        else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
+            coffeeName = "Iced Caramel Macchiato";
+        else if (state.SetEquals(new HashSet<string>(new[] { "VanillaSyrup", "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
+            coffeeName = "Iced Caramel Vanilla Latte";
+        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Milk", "CaramelSyrup", "Ice" })))
+            coffeeName = "Caramel Iced Coffee";
+        else if (state.SetEquals(new HashSet<string>(new[] { "Espresso"})))
+            coffeeName = "Espresso";
+        else if (state.SetEquals(new HashSet<string>(new[] { "ColdBrew" })))
+            coffeeName = "Cold Brew";
+        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Espresso" })))
+            coffeeName = "DEBUG Coffee // Anne eli değmiş gibi";
+        else
+            coffeeName = "";
+        
     }
-
-    
 }

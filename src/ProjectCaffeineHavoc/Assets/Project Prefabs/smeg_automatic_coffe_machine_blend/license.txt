@@ -1,0 +1,11 @@
+Model Information:
+* title:	Smeg Automatic Coffe Machine blend
+* source:	https://sketchfab.com/3d-models/smeg-automatic-coffe-machine-blend-a57c26be14d84797bf1c67f52ae15ad4
+* author:	idehn_3d (https://sketchfab.com/idehn_3d)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Smeg Automatic Coffe Machine blend" (https://sketchfab.com/3d-models/smeg-automatic-coffe-machine-blend-a57c26be14d84797bf1c67f52ae15ad4) by idehn_3d (https://sketchfab.com/idehn_3d) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

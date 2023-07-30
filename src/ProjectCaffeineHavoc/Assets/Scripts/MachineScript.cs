@@ -18,7 +18,7 @@ public class MachineScript : MonoBehaviour
                             MilkFrother,
                             IceCloset,
                             Trash,
-                            Blender};// blender is not active for now.
+                            Container};
     public machines machineType; // what type of machine is this object
 
     // ######################## ######################## ######################## ######################## ######################## ######################## //
@@ -49,6 +49,10 @@ public class MachineScript : MonoBehaviour
         else if (machineType == machines.IceCloset)
         {
             Debug.Log("put ice to player.heldItem");
+        }
+        else if (machineType == machines.Container)
+        {
+            Debug.Log("put Cold Brew to player.heldItem");
         }
     }
 
@@ -93,15 +97,14 @@ public class MachineScript : MonoBehaviour
             //Debug.Log("froth the milk if player.heldItem.state equals to {Milk} or {VeganMilk}, make character.heldItem = same coffeeholder with same milks frothed version");
             if (heldItemScript.state.SetEquals(new HashSet<string>(new[] { "Milk" })))
             {
-                heldItemScript.state.Add("FrothedMilk");
+                heldItemScript.state = new HashSet<string>(new[] { "FrothedMilk" });
             }
             else if (heldItemScript.state.SetEquals(new HashSet<string>(new[] { "VeganMilk" })))
             {
-                heldItemScript.state.Add("FrothedVeganMilk");
+                heldItemScript.state = new HashSet<string>(new[] { "FrothedMilk" });
             }
         }
 
-        /*if machineType == machines.Blender BLENDER IS DISABLED FOR NOW*/
 
         heldItemScript.transformToCoffee();
     }

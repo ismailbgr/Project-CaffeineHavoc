@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class PlaceController : MonoBehaviour
 {
     // Create object queue and append the main object's children to this list.
@@ -15,11 +15,6 @@ public class PlaceController : MonoBehaviour
         {
             places.Enqueue(child);
         }
-
-        foreach (GameObject place in places)
-        {
-            Debug.Log(place.transform.position);
-        }
     }
 
 
@@ -30,6 +25,9 @@ public class PlaceController : MonoBehaviour
         {
             customers.Add(customer); // Listeye müşteri objelerini ekleyin.
         }
+
+        // places objelerinin oyundaki obje isimlerini index sırasına göre yazdır
+        
     }
 
     void Update()
@@ -43,7 +41,6 @@ public class PlaceController : MonoBehaviour
                 // Eğer müşteri hedefe çok yaklaştıysa, place'in is_there_customer'ını true yap.
                 if (GetDistanceXZ(customer.transform.position, place.transform.position) < 0.1f)
                 {
-                    Debug.Log("Place is true");
                     place.GetComponent<CustomerCheck>().is_there_customer = true;
                     is_there_customer = true; // is_there_customer'ı true olarak işaretle.
                     customer.GetComponent<CustomerMovement>().is_in_order = true; // Müşteri sipariş verdiğinde is_in_order'ı true yap.
@@ -53,6 +50,7 @@ public class PlaceController : MonoBehaviour
         }
     }
 
+      
     float GetDistanceXZ(Vector3 pos1, Vector3 pos2)
     {
         // Sadece x ve z eksenlerine göre uzaklığı hesaplamak için y eksenlerini dikkate almayın.
@@ -64,4 +62,7 @@ public class PlaceController : MonoBehaviour
 
         return distanceXZ;
     }
+
+    
 }
+*/

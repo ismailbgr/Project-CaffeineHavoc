@@ -7,6 +7,7 @@ public class MachineScript : MonoBehaviour
     public GameObject player;
     public CharacterInteractionScript playerScript;
     public CupGlassContainerScript heldItemScript;
+    public string syrupType;
 
     // List of machines to be from
     public enum machines {  CoffeeGrinder,                            
@@ -42,26 +43,27 @@ public class MachineScript : MonoBehaviour
 
     public void useMachine() // machines that are used with empty hand
     {
-        if (machineType == machines.CoffeeGrinder)
-        {
-            Debug.Log("put coffee grounds to player.heldItem"); // how to set prefab to players hand(collider/rigidbody/tag vs de eklenmesi laz�m burada)
-        }
-        else if (machineType == machines.IceCloset)
-        {
-            Debug.Log("put ice to player.heldItem");
-        }
-        else if (machineType == machines.Container)
-        {
-            Debug.Log("put Cold Brew to player.heldItem");
-        }
+
     }
 
     public void fillGlass() // machines that are used with glass/cup/container in hand
     {
-        if (machineType == machines.Kettle)
+        if (machineType == machines.Container)
+        {
+            heldItemScript.state.Add("Cold Brew");
+        }
+        else if (machineType == machines.Kettle)
         {
             //Debug.Log("add hot water to player.heldItem"); // heldItemScript.addIngradient(Hot water ingradient)
+            heldItemScript.state.Add("HotWater");
+        }
+        else if (machineType == machines.IceCloset)
+        {
             heldItemScript.state.Add("Ice");
+        }
+        if (machineType == machines.CoffeeGrinder)
+        {
+            heldItemScript.state.Add("CoffeeGround");
         }
         else if (machineType == machines.EspressoMachine)
         {
@@ -71,7 +73,7 @@ public class MachineScript : MonoBehaviour
         else if (machineType == machines.SyrupDispenser)
         {
             //Debug.Log("add syrup player.heldItem"); // heldItemScript.addIngradient(syrup ingradient)
-            heldItemScript.state.Add("Syrup");
+            heldItemScript.state.Add(syrupType);
         }
         else if (machineType == machines.FrenchPress)
         {

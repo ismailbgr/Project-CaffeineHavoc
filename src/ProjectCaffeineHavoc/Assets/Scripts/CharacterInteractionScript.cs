@@ -120,6 +120,22 @@ public class CharacterInteractionScript : MonoBehaviour
                                                                         playerCamera.transform.right * 0.4f +
                                                                         playerCamera.transform.up * -0.3f;
         heldItem.transform.rotation = playerCamera.transform.rotation;
+
+
+        if (heldItem.CompareTag("CoffeeHolder"))
+        {
+            string logMessage = "";
+            CupGlassContainerScript ffff = heldItem.GetComponent<CupGlassContainerScript>();
+            logMessage = "CoffeeHolder state:" + string.Join(", ", ffff.state);
+            Debug.Log(logMessage);
+        }
+        else if (heldItem.CompareTag("Ingradient"))
+        {
+            string logMessage = "";
+            IngradientScript ffff = heldItem.GetComponent<IngradientScript>();
+            logMessage = "Ingradient state:" + string.Join(", ", ffff.state);
+            Debug.Log(logMessage);
+        }
     }
 
     /* FOR DEBUGGING AT updateHeldItem()

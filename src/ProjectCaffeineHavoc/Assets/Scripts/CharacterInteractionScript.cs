@@ -13,8 +13,8 @@ public class CharacterInteractionScript : MonoBehaviour
     private CupGlassContainerScript coffeeHolderScript;
 
 
-    public GameObject testPrefabSpawn;
-
+    public GameObject handBook;
+    public bool isHandBookOpen = false;
 
     private void Start()
     {
@@ -42,9 +42,6 @@ public class CharacterInteractionScript : MonoBehaviour
                 isHandBookOpen = true;
                 handBook.transform.localScale = new Vector3(1, 1, 1);
             }
-            
-
-
 
         }
 
@@ -75,8 +72,11 @@ public class CharacterInteractionScript : MonoBehaviour
                 else if (lookingObject.CompareTag("Machine"))
                 {
                     //Debug.Log("using " + lookingObject);
-                    useMachineScript = lookingObject.GetComponent<MachineScript>();
-                    useMachineScript.useMachine();
+                    if (Vector3.Distance(lookingObject.transform.position, transform.position) < 3f)
+                    {
+                        useMachineScript = lookingObject.GetComponent<MachineScript>();
+                        useMachineScript.useMachine();
+                    }
                 }
             }
             else if (lookingObject != null && heldItem != null)
@@ -84,20 +84,25 @@ public class CharacterInteractionScript : MonoBehaviour
                 //Debug.Log("functions with full hand.");
                 if (lookingObject.CompareTag("Ingradient") || lookingObject.CompareTag("CoffeeHolder"))
                 { // if we are looking at something that can be merged: merge lookingObject with heldItem
-                    //Debug.Log("mixing " + heldItem + " with " + lookingObject);
-                    putInItem(heldItem, lookingObject);
+                  //Debug.Log("mixing " + heldItem + " with " + lookingObject);
+                    if (Vector3.Distance(lookingObject.transform.position, transform.position) < 3f)
+                    {
+                        putInItem(heldItem, lookingObject);
+                    }
                 }
                 else if (lookingObject.CompareTag("Machine"))
                 { // if we are looking at a machine:
                     if (heldItem.CompareTag("CoffeeHolder"))
                     { // and holding a coffeeHolder: fill the coffeeHolder with machines output
-                        useMachineScript = lookingObject.GetComponent<MachineScript>();
-                        useMachineScript.fillGlass();
+                        if (Vector3.Distance(lookingObject.transform.position, transform.position) < 3f)
+                        {
+                            useMachineScript = lookingObject.GetComponent<MachineScript>();
+                            useMachineScript.fillGlass();
+                        }
                     }
                     else
                     { // if we are holding an Ingradient and looking at a machine: do nothing 
                         // filling a machines ingradient space can be done here in the future(like putting coffee beans to coffee grinder of putting ingradients to frenchpress)
-                        // we are putting only CoffeeHolders in to trash right now, we can put ingradient to trash in this else part
                     }
                 }
                 else
@@ -130,22 +135,6 @@ public class CharacterInteractionScript : MonoBehaviour
                                                                         playerCamera.transform.right * 0.4f +
                                                                         playerCamera.transform.up * -0.3f;
         heldItem.transform.rotation = playerCamera.transform.rotation;
-
-
-        if (heldItem.CompareTag("CoffeeHolder"))
-        {
-            string logMessage = "";
-            CupGlassContainerScript ffff = heldItem.GetComponent<CupGlassContainerScript>();
-            logMessage = "CoffeeHolder state:" + string.Join(", ", ffff.state);
-            Debug.Log(logMessage);
-        }
-        else if (heldItem.CompareTag("Ingradient"))
-        {
-            string logMessage = "";
-            IngradientScript ffff = heldItem.GetComponent<IngradientScript>();
-            logMessage = "Ingradient state:" + string.Join(", ", ffff.state);
-            Debug.Log(logMessage);
-        }
     }
 
     /* FOR DEBUGGING AT updateHeldItem()
@@ -169,8 +158,11 @@ public class CharacterInteractionScript : MonoBehaviour
 
     private void pickUpItem(GameObject obj)
     { // pick up the object obj
-        heldItem = obj;
-        heldItem.transform.SetParent(transform);
+        if (Vector3.Distance(transform.position, obj.transform.position) < 3f)
+        {
+            heldItem = obj;
+            heldItem.transform.SetParent(transform);
+        }
     }
 
     private void putDownItem()
@@ -180,28 +172,26 @@ public class CharacterInteractionScript : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            heldItem.transform.position = hit.point + new Vector3(0f, 0.02f, 0f);
-            heldItem.transform.rotation = Quaternion.identity;
+            if (Vector3.Distance(hit.point, transform.position) < 3f)
+            {
+                heldItem.transform.position = hit.point + new Vector3(0f, 0.02f, 0f);
+                heldItem.transform.rotation = Quaternion.identity;
+            }
         }
-
-        heldItem.transform.SetParent(null);
-        heldItem = null;
+        if (Vector3.Distance(hit.point, transform.position) < 3f)
+        {
+            heldItem.transform.SetParent(null);
+            heldItem = null;
+        }
     }
 
     private void putInItem(GameObject item1, GameObject item2) // item1: held, item2: looked
     {
-        Debug.Log("Merging " + item1 + " and " + item2);
-
         GameObject newItem = null; // item to hold at the end.
-        if ((item1.CompareTag("CoffeeHolder") && item2.CompareTag("Ingradient")) || (item1.CompareTag("Ingradient") && item2.CompareTag("CoffeeHolder")))
+        if (item1.CompareTag("Ingradient") && item2.CompareTag("CoffeeHolder"))
         { // add ingradient type of items content into coffeeHolder type of item
-            GameObject itemCH = item1; // assign coffeeholder to item1 by default
-            GameObject itemIngra = item2; // assign ingradient to item2 by default
-            if (item1.CompareTag("Ingradient"))
-            { // if its reverse, change the object assignment
-                itemCH = item2;
-                itemIngra = item1;
-            }
+            GameObject itemIngra = item1; // assign ingradient to item1 by default
+            GameObject itemCH = item2; // assign coffeeholder to item2 by default
 
             coffeeHolderScript = itemCH.GetComponent<CupGlassContainerScript>();
             coffeeHolderScript.addIngradient(itemIngra);

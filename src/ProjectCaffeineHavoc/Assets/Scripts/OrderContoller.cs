@@ -8,17 +8,30 @@ public class OrderContoller : MonoBehaviour
 
     // List of coffees are 
     string[] coffeeList = {
-    "Espresso",
     "Vanilla Latte",
+    "Vegan Vanilla Latte",
     "Iced Vanilla Latte",
+    "Vegan Iced Vanilla Latte",
     "Caramel Macchiato",
+    "Vegan Caramel Macchiato",
     "Iced Caramel Macchiato",
+    "Vegan Iced Caramel Macchiato",
     "Iced Caramel Vanilla Latte",
+    "Vegan Iced Caramel Vanilla Latte",
     "Caramel Iced Coffee",
-    "DEBUG Coffee // Anne eli değmiş gibi",
+    "Vegan Caramel Iced Coffee",
+    "Espresso",
     "Cold Brew",
     "Drip Coffee",
+    "DEBUG Coffee // Anne eli değmiş gibi"
     };
+
+
+
+
+
+
+
 
     public string coffeeName;
     public string orderCoffeeName;

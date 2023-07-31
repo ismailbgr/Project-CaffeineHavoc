@@ -61,16 +61,28 @@ public class CupGlassContainerScript : MonoBehaviour
     { // always checking if any of coffeeHolders created coffe with ingradients it has inside it
         if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup" })))
             coffeeName = "Vanilla Latte";
+        else if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "VeganFrothedMilk", "VanillaSyrup" })))
+            coffeeName = "Vegan Vanilla Latte";
         else if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup", "Ice" })))
             coffeeName = "Iced Vanilla Latte";
+        else if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "VeganFrothedMilk", "VanillaSyrup", "Ice" })))
+            coffeeName = "Vegan Iced Vanilla Latte";
         else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk" })))
             coffeeName = "Caramel Macchiato";
+        else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "VeganFrothedMilk" })))
+            coffeeName = "Vegan Caramel Macchiato";
         else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
             coffeeName = "Iced Caramel Macchiato";
+        else if (state.SetEquals(new HashSet<string>(new[] { "CaramelSyrup", "Espresso", "VeganFrothedMilk", "Ice" })))
+            coffeeName = "Vegan Iced Caramel Macchiato";
         else if (state.SetEquals(new HashSet<string>(new[] { "VanillaSyrup", "CaramelSyrup", "Espresso", "FrothedMilk", "Ice" })))
             coffeeName = "Iced Caramel Vanilla Latte";
-        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Milk", "CaramelSyrup", "Ice" })) || state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "VeganMilk", "CaramelSyrup", "Ice" })))
+        else if (state.SetEquals(new HashSet<string>(new[] { "VanillaSyrup", "CaramelSyrup", "Espresso", "VeganFrothedMilk", "Ice" })))
+            coffeeName = "Vegan Iced Caramel Vanilla Latte";
+        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Milk", "CaramelSyrup", "Ice" })))
             coffeeName = "Caramel Iced Coffee";
+        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "VeganMilk", "CaramelSyrup", "Ice" })))
+            coffeeName = "Vegan Caramel Iced Coffee";
         else if (state.SetEquals(new HashSet<string>(new[] { "Espresso"})))
             coffeeName = "Espresso";
         else if (state.SetEquals(new HashSet<string>(new[] { "ColdBrew" })))

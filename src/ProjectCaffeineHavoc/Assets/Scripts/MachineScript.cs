@@ -105,7 +105,7 @@ public class MachineScript : MonoBehaviour
             }
             else if (heldItemScript.state.SetEquals(new HashSet<string>(new[] { "VeganMilk" })))
             {
-                heldItemScript.state = new HashSet<string>(new[] { "FrothedMilk" });
+                heldItemScript.state = new HashSet<string>(new[] { "VeganFrothedMilk" });
             }
         }
 

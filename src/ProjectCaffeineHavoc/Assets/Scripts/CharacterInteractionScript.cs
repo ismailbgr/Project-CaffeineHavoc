@@ -16,6 +16,15 @@ public class CharacterInteractionScript : MonoBehaviour
     public GameObject handBook;
     public bool isHandBookOpen = false;
 
+    private CupGlassContainerScript prefabSwapScript;
+    public GameObject emptyCupPrefab;
+    public GameObject iceCupPrefab;
+    public GameObject waterCupPrefab;
+    public GameObject milkCupPrefab;
+    public GameObject coffee1CupPrefab;
+    public GameObject coffee2CupPrefab;
+    public GameObject coffee3CupPrefab;
+
     private void Start()
     {
         handBook = GameObject.Find("Handbook");
@@ -111,8 +120,9 @@ public class CharacterInteractionScript : MonoBehaviour
                     putDownItem();
                 }
             }
-        }
 
+            transformPrefab();
+        }
     }
 
     // ######################## ######################## ######################## ######################## ######################## ######################## //
@@ -220,4 +230,56 @@ public class CharacterInteractionScript : MonoBehaviour
 
     // ######################## ######################## ######################## ######################## ######################## ######################## //
 
+    public void transformPrefab()
+    {
+        if (heldItem != null && heldItem.CompareTag("CoffeeHolder"))
+        {
+            prefabSwapScript = heldItem.GetComponent<CupGlassContainerScript>();
+            HashSet<string> oldState = prefabSwapScript.state;
+
+            if (prefabSwapScript.state.SetEquals(new HashSet<string>()))
+            {
+                Destroy(heldItem);
+                heldItem = Instantiate(emptyCupPrefab, transform.position, Quaternion.identity);
+            }
+            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "Ice" })))
+            {
+                Destroy(heldItem);
+                heldItem = Instantiate(iceCupPrefab, transform.position, Quaternion.identity);
+            }
+            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "HotWater" })))
+            {
+                Destroy(heldItem);
+                heldItem = Instantiate(waterCupPrefab, transform.position, Quaternion.identity);
+            }
+            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "Milk" })) || prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "VeganMilk" })) ||
+                prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "FrothedMilk" })) || prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "VeganFrothedMilk" })))
+            {
+                Destroy(heldItem);
+                heldItem = Instantiate(milkCupPrefab, transform.position, Quaternion.identity);
+            }
+            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "Espresso" })) ||
+                prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "ColdBrew" })) ||
+                prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "DripCoffee" })))
+            {
+                Destroy(heldItem);
+                heldItem = Instantiate(coffee3CupPrefab, transform.position, Quaternion.identity);
+            }
+            else if ((prefabSwapScript.state.Contains("Espresso") || prefabSwapScript.state.Contains("ColdBrew") || prefabSwapScript.state.Contains("DripCoffee")) && 
+                (prefabSwapScript.state.Contains("Milk") || prefabSwapScript.state.Contains("VeganMilk") || prefabSwapScript.state.Contains("FrothedMilk") || prefabSwapScript.state.Contains("VeganFrothedMilk")) && 
+                prefabSwapScript.state.Contains("Ice"))
+            {
+                Destroy(heldItem);
+                heldItem = Instantiate(coffee1CupPrefab, transform.position, Quaternion.identity);
+            }
+            else if ((prefabSwapScript.state.Contains("Espresso") || prefabSwapScript.state.Contains("ColdBrew") || prefabSwapScript.state.Contains("DripCoffee")) &&
+                    (prefabSwapScript.state.Contains("Milk") || prefabSwapScript.state.Contains("VeganMilk") || prefabSwapScript.state.Contains("FrothedMilk") || prefabSwapScript.state.Contains("VeganFrothedMilk")))
+            {
+                Destroy(heldItem);
+                heldItem = Instantiate(coffee2CupPrefab, transform.position, Quaternion.identity);
+            }
+            prefabSwapScript = heldItem.GetComponent<CupGlassContainerScript>();
+            prefabSwapScript.state = oldState;
+        }
+    }
 }

@@ -93,6 +93,5 @@ public class CupGlassContainerScript : MonoBehaviour
             coffeeName = "DEBUG Coffee // Anne eli değmiş gibi";
         else
             coffeeName = "";
-        
     }
 }

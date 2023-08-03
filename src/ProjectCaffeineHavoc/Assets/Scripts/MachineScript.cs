@@ -8,6 +8,7 @@ public class MachineScript : MonoBehaviour
     public CharacterInteractionScript playerScript;
     public CupGlassContainerScript heldItemScript;
     public string syrupType;
+    public AudioSource audioSource;
 
     // List of machines to be from
     public enum machines {  CoffeeGrinder,                            
@@ -48,6 +49,11 @@ public class MachineScript : MonoBehaviour
 
     public void fillGlass() // machines that are used with glass/cup/container in hand
     {
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
+
         if (machineType == machines.Container)
         {
             heldItemScript.state.Add("ColdBrew");
@@ -109,6 +115,11 @@ public class MachineScript : MonoBehaviour
             }
         }
 
+        if (audioSource != null && audioSource.clip != null)
+        {
+            // Play the audio clip
+            audioSource.Play();
+        }
 
         heldItemScript.transformToCoffee();
     }

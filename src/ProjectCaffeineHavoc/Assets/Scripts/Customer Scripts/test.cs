@@ -8,6 +8,6 @@ public class test : MonoBehaviour
     void Update()
     {
         // is_there_customer'ı yazdır
-        Debug.Log(GetComponent<CustomerCheck>().is_there_customer);
+        // Debug.Log(GetComponent<CustomerCheck>().is_there_customer);
     }
 }

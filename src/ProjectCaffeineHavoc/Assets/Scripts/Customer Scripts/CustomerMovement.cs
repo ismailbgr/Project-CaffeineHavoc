@@ -32,7 +32,7 @@ public class CustomerMovement : MonoBehaviour
         }
 
         float distanceToDestination = GetDistanceXZ(transform.position, order_places[destination_number].transform.position);
-        Debug.Log(distanceToDestination);
+        //Debug.Log(distanceToDestination);
         
         if (distanceToDestination < threshold)
         {   

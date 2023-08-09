@@ -20,6 +20,7 @@ public class CupGlassContainerScript : MonoBehaviour
 
     public void Update()
     {
+        transformToCoffee();
     }
     
     // ######################## ######################## ######################## ######################## ######################## //
@@ -34,7 +35,6 @@ public class CupGlassContainerScript : MonoBehaviour
         {
             state.Add(contents);
         }
-
     }
 
     public void pourInto(GameObject lookedCoffeeHolder)

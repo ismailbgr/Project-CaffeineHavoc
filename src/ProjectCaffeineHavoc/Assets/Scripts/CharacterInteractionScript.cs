@@ -144,7 +144,17 @@ public class CharacterInteractionScript : MonoBehaviour
         heldItem.transform.position = playerCamera.transform.position + playerCamera.transform.forward * 0.6f +
                                                                         playerCamera.transform.right * 0.4f +
                                                                         playerCamera.transform.up * -0.3f;
-        heldItem.transform.rotation = playerCamera.transform.rotation;
+
+        if (heldItem.CompareTag("CoffeeHolder"))
+        {
+            coffeeHolderScript = heldItem.GetComponent<CupGlassContainerScript>();
+            if (coffeeHolderScript.state.SetEquals(new HashSet<string>(new[] { "Ice" })))
+            {
+                heldItem.transform.rotation = Quaternion.Euler(0f, 225f, 0f);
+                return;
+            }
+        }
+            heldItem.transform.rotation = Quaternion.Euler(270f, 235f, 0f);
     }
 
     /* FOR DEBUGGING AT updateHeldItem()
@@ -185,7 +195,18 @@ public class CharacterInteractionScript : MonoBehaviour
             if (Vector3.Distance(hit.point, transform.position) < 3f)
             {
                 heldItem.transform.position = hit.point + new Vector3(0f, 0.02f, 0f);
-                heldItem.transform.rotation = Quaternion.identity;
+                if (heldItem.CompareTag("CoffeeHolder"))
+                {
+                    coffeeHolderScript = heldItem.GetComponent<CupGlassContainerScript>();
+                    if (coffeeHolderScript.state.SetEquals(new HashSet<string>(new[] { "Ice" })))
+                    {
+                        heldItem.transform.rotation = Quaternion.Euler(0f, 225f, 0f);
+                    }
+                    else
+                        heldItem.transform.rotation = Quaternion.Euler(270f, 235f, 0f);
+                }
+                else
+                    heldItem.transform.rotation = Quaternion.Euler(270f, 235f, 0f);
             }
         }
         if (Vector3.Distance(hit.point, transform.position) < 3f)
@@ -215,6 +236,7 @@ public class CharacterInteractionScript : MonoBehaviour
         { // if item1 and item2 are coffeeHolder, merge them into which the character is looking
             coffeeHolderScript = item1.GetComponent<CupGlassContainerScript>();
             coffeeHolderScript.pourInto(item2); // pour item1 into item2, now we will hold the empty coffeeHolder
+            transformPrefabNotHeldItem(item2);
             newItem = item1; // store the new created item
             heldItem.transform.SetParent(null); // empty the hend step1
             heldItem = null; // empty the hend step2
@@ -238,51 +260,103 @@ public class CharacterInteractionScript : MonoBehaviour
             HashSet<string> oldState = prefabSwapScript.state;
             Vector3 oldPos = heldItem.transform.position;
 
-            if (prefabSwapScript.state.SetEquals(new HashSet<string>()))
+            if (oldState.SetEquals(new HashSet<string>()))
             {
                 Destroy(heldItem);
-                heldItem = Instantiate(emptyCupPrefab, oldPos, Quaternion.identity);
+                heldItem = Instantiate(emptyCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
             }
-            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "Ice" })))
+            else if (oldState.SetEquals(new HashSet<string>(new[] { "Ice" })))
             {
                 Destroy(heldItem);
-                heldItem = Instantiate(iceCupPrefab, oldPos, Quaternion.identity);
+                heldItem = Instantiate(iceCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
             }
-            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "HotWater" })))
+            else if (oldState.SetEquals(new HashSet<string>(new[] { "HotWater" })))
             {
                 Destroy(heldItem);
-                heldItem = Instantiate(waterCupPrefab, oldPos, Quaternion.identity);
+                heldItem = Instantiate(waterCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
             }
-            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "Milk" })) || prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "VeganMilk" })) ||
-                prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "FrothedMilk" })) || prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "VeganFrothedMilk" })))
+            else if (oldState.SetEquals(new HashSet<string>(new[] { "Espresso" })) ||
+                     oldState.SetEquals(new HashSet<string>(new[] { "ColdBrew" })) ||
+                     oldState.SetEquals(new HashSet<string>(new[] { "DripCoffee" })))
             {
                 Destroy(heldItem);
-                heldItem = Instantiate(milkCupPrefab, oldPos, Quaternion.identity);
+                heldItem = Instantiate(coffee3CupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
             }
-            else if (prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "Espresso" })) ||
-                prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "ColdBrew" })) ||
-                prefabSwapScript.state.SetEquals(new HashSet<string>(new[] { "DripCoffee" })))
+            else if (oldState.Overlaps(new HashSet<string> { "Milk", "VeganMilk", "FrothedMilk", "VeganFrothedMilk" }) && 
+                    !oldState.Overlaps(new HashSet<string> { "Espresso", "ColdBrew", "DripCoffee" }))
             {
                 Destroy(heldItem);
-                heldItem = Instantiate(coffee3CupPrefab, oldPos, Quaternion.identity);
+                heldItem = Instantiate(milkCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
             }
-            else if ((prefabSwapScript.state.Contains("Espresso") || prefabSwapScript.state.Contains("ColdBrew") || prefabSwapScript.state.Contains("DripCoffee")) && 
-                (prefabSwapScript.state.Contains("Milk") || prefabSwapScript.state.Contains("VeganMilk") || prefabSwapScript.state.Contains("FrothedMilk") || prefabSwapScript.state.Contains("VeganFrothedMilk")) && 
-                prefabSwapScript.state.Contains("Ice"))
+            else if (oldState.Overlaps(new HashSet<string> { "Espresso", "ColdBrew", "DripCoffee" }) &&
+                     oldState.Overlaps(new HashSet<string> { "Milk", "VeganMilk", "FrothedMilk", "VeganFrothedMilk" }) &&
+                     oldState.Overlaps(new HashSet<string> { "Ice", "HotWater" }))
             {
                 Destroy(heldItem);
-                heldItem = Instantiate(coffee1CupPrefab, oldPos, Quaternion.identity);
+                heldItem = Instantiate(coffee1CupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
             }
-            else if ((prefabSwapScript.state.Contains("Espresso") || prefabSwapScript.state.Contains("ColdBrew") || prefabSwapScript.state.Contains("DripCoffee")) &&
-                    (prefabSwapScript.state.Contains("Milk") || prefabSwapScript.state.Contains("VeganMilk") || prefabSwapScript.state.Contains("FrothedMilk") || prefabSwapScript.state.Contains("VeganFrothedMilk")))
+            else if (oldState.Overlaps(new HashSet<string> { "Milk", "VeganMilk", "FrothedMilk", "VeganFrothedMilk" }) &&
+                     oldState.Overlaps(new HashSet<string> { "Espresso", "ColdBrew", "DripCoffee" }))
             {
                 Destroy(heldItem);
-                heldItem = Instantiate(coffee2CupPrefab, oldPos, Quaternion.identity);
+                heldItem = Instantiate(coffee2CupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
             }
 
             prefabSwapScript = heldItem.GetComponent<CupGlassContainerScript>();
             prefabSwapScript.state = oldState;
-
         }
+    }
+
+    public void transformPrefabNotHeldItem(GameObject cup)
+    {
+        prefabSwapScript = cup.GetComponent<CupGlassContainerScript>();
+        HashSet<string> oldState = prefabSwapScript.state;
+        Vector3 oldPos = cup.transform.position;
+
+        if (oldState.SetEquals(new HashSet<string>()))
+        {
+            Destroy(cup);
+            cup = Instantiate(emptyCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
+        }
+        else if (oldState.SetEquals(new HashSet<string>(new[] { "Ice" })) && 
+                !oldState.Overlaps(new HashSet<string> { "Espresso", "ColdBrew", "DripCoffee", "Milk", "VeganMilk", "FrothedMilk", "VeganFrothedMilk" }))  
+        {
+            Destroy(cup);
+            cup = Instantiate(iceCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
+        }
+        else if (oldState.SetEquals(new HashSet<string>(new[] { "HotWater" })))
+        {
+            Destroy(cup);
+            cup = Instantiate(waterCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
+        }
+        else if (oldState.SetEquals(new HashSet<string>(new[] { "Espresso" })) ||
+                    oldState.SetEquals(new HashSet<string>(new[] { "ColdBrew" })) ||
+                    oldState.SetEquals(new HashSet<string>(new[] { "DripCoffee" })))
+        {
+            Destroy(cup);
+            cup = Instantiate(coffee3CupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
+        }
+        else if (oldState.Overlaps(new HashSet<string> { "Milk", "VeganMilk", "FrothedMilk", "VeganFrothedMilk" }) &&
+                !oldState.Overlaps(new HashSet<string> { "Espresso", "ColdBrew", "DripCoffee" }))
+        {
+            Destroy(cup);
+            cup = Instantiate(milkCupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
+        }
+        else if (oldState.Overlaps(new HashSet<string> { "Espresso", "ColdBrew", "DripCoffee" }) &&
+                    oldState.Overlaps(new HashSet<string> { "Milk", "VeganMilk", "FrothedMilk", "VeganFrothedMilk" }) &&
+                    oldState.Overlaps(new HashSet<string> { "Ice", "HotWater" }))
+        {
+            Destroy(cup);
+            cup = Instantiate(coffee1CupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
+        }
+        else if (oldState.Overlaps(new HashSet<string> { "Milk", "VeganMilk", "FrothedMilk", "VeganFrothedMilk" }) &&
+                    oldState.Overlaps(new HashSet<string> { "Espresso", "ColdBrew", "DripCoffee" }))
+        {
+            Destroy(cup);
+            cup = Instantiate(coffee2CupPrefab, oldPos, Quaternion.Euler(270f, 235f, 0f));
+        }
+
+        prefabSwapScript = cup.GetComponent<CupGlassContainerScript>();
+        prefabSwapScript.state = oldState;
     }
 }

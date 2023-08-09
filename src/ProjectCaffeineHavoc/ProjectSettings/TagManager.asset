@@ -9,6 +9,7 @@ TagManager:
   - Ingradient
   - OrderPlace
   - Customer
+  - Outsite
   layers:
   - Default
   - TransparentFX

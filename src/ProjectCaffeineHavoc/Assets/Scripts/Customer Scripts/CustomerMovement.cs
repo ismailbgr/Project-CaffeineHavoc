@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class CustomerMovement : MonoBehaviour
 {   
+    public GameObject customerObject;
+
     private Animator animator;
     public NavMeshAgent customer;
     public int destination_number = 0;
@@ -12,6 +14,9 @@ public class CustomerMovement : MonoBehaviour
     public bool is_in_order = false; // müşteri sırada mı?
     public List<GameObject> order_places;
     public float threshold = 0.5f;
+
+    public bool is_in_pickup_place = false; // müşteri sipariş sırasında mı?
+    public bool is_picked_order = false; // müşteri siparişi aldı mı?
 
     void Start()
     {   
@@ -48,9 +53,19 @@ public class CustomerMovement : MonoBehaviour
         {   
             if(!is_in_order) {
                 destination_number++; // destination_number'ı bir sonraki OrderPlace'e yönlendirmek için arttırın.  
+                customer.SetDestination(order_places[destination_number].transform.position);
                 destination_number %= order_places.Count; // destination_number'ı liste sınırına göre sıfırlayın.
             }
-            
+        }
+
+        if (destination_number != 0 && destination_number != order_places.Count-1 && is_in_order && order_places[destination_number-1].GetComponent<CustomerCheck>().is_there_customer == false)
+        {   
+            destination_number -= 1;
+            is_in_order = false;
+            customer.SetDestination(order_places[destination_number].transform.position);
+            customer.speed = 1f;
+            order_places[destination_number+1].GetComponent<CustomerCheck>().is_there_customer = false;
+            threshold = 0.5f;
         }
 
         if(is_in_order) { //karakterin yüzünü kameraya döndür. Smooth bir dönüş için slerp kullan.
@@ -59,7 +74,30 @@ public class CustomerMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }        
 
-        
+        if(is_in_order && destination_number == 0) {
+            is_in_pickup_place = true;
+        }
+
+        if(is_in_order && is_picked_order) {
+            destination_number = order_places.Count - 1;
+            is_in_order = false;
+            customer.SetDestination(order_places[destination_number].transform.position);
+            customer.speed = 1f;
+            order_places[0].GetComponent<CustomerCheck>().is_there_customer = false;
+            threshold = 1f;
+            is_picked_order = false;
+            is_in_pickup_place = false;
+        }
+
+        if(is_in_order && destination_number == order_places.Count - 1) {
+            customerObject.transform.position = new Vector3(-10f,5f,100f);
+            is_picked_order = false;
+            is_in_pickup_place = false;
+            threshold = 0.5f;
+            destination_number = 0;
+            customer.SetDestination(order_places[destination_number].transform.position);
+            is_in_order = false;
+        }
     }
 
     float GetDistanceXZ(Vector3 pos1, Vector3 pos2)

@@ -9,6 +9,8 @@ public class CharacterInteractionScript : MonoBehaviour
     public GameObject lookingObject;
     public GameObject heldItem = null;
 
+    public bool destroy_item = false;
+
     private MachineScript useMachineScript;
     private CupGlassContainerScript coffeeHolderScript;
 
@@ -57,6 +59,12 @@ public class CharacterInteractionScript : MonoBehaviour
         if (heldItem != null)
         {
             updateHeldItem();
+        }
+
+        if(destroy_item) {
+            destroy_item = false;
+            Destroy(heldItem);
+            heldItem = null;
         }
     }
 

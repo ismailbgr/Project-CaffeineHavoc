@@ -13,16 +13,22 @@ public class CustomerMovement : MonoBehaviour
     // create only positive number
     public bool is_in_order = false; // müşteri sırada mı?
     public List<GameObject> order_places;
-    public float threshold = 0.5f;
+    public float threshold = 0.05f;
 
     public bool is_in_pickup_place = false; // müşteri sipariş sırasında mı?
     public bool is_picked_order = false; // müşteri siparişi aldı mı?
+
+    public float destroyDelay = 6.0f;
+
+    public GameObject mainCamera;
 
     void Start()
     {   
         animator = GetComponent<Animator>();
         customer = GetComponent<NavMeshAgent>();
         order_places = new List<GameObject>(); // Listeyi başlatın (initialize).
+        mainCamera = GameObject.Find("Player");
+
         foreach (GameObject place in GameObject.FindGameObjectsWithTag("OrderPlace"))
         {
             order_places.Add(place); // Listeye müşteri objelerini ekleyin.
@@ -31,6 +37,11 @@ public class CustomerMovement : MonoBehaviour
 
     void Update()
     {   
+        if(destination_number == order_places.Count - 1) {
+            //5 saniye sonra müşteriyi yok et.
+            Invoke("DestroyObject", destroyDelay);
+        }
+
         if(!is_in_order) {
             animator.SetBool("isStanding", false);
             customer.SetDestination(order_places[destination_number].transform.position);
@@ -69,7 +80,7 @@ public class CustomerMovement : MonoBehaviour
         }
 
         if(is_in_order) { //karakterin yüzünü kameraya döndür. Smooth bir dönüş için slerp kullan.
-            Vector3 direction = (Camera.main.transform.position - transform.position).normalized;
+            Vector3 direction = (mainCamera.transform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }        
@@ -84,20 +95,17 @@ public class CustomerMovement : MonoBehaviour
             customer.SetDestination(order_places[destination_number].transform.position);
             customer.speed = 1f;
             order_places[0].GetComponent<CustomerCheck>().is_there_customer = false;
-            threshold = 1f;
+            threshold = 5f;
             is_picked_order = false;
             is_in_pickup_place = false;
         }
 
-        if(is_in_order && destination_number == order_places.Count - 1) {
-            customerObject.transform.position = new Vector3(-10f,5f,100f);
-            is_picked_order = false;
-            is_in_pickup_place = false;
-            threshold = 0.5f;
-            destination_number = 0;
-            customer.SetDestination(order_places[destination_number].transform.position);
-            is_in_order = false;
-        }
+        
+    }
+
+    void DestroyObject()
+    {
+        Destroy(customerObject);
     }
 
     float GetDistanceXZ(Vector3 pos1, Vector3 pos2)

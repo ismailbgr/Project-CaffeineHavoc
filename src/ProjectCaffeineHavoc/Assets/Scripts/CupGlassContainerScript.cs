@@ -89,8 +89,6 @@ public class CupGlassContainerScript : MonoBehaviour
             coffeeName = "Cold Brew";
         else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee" })))
             coffeeName = "Drip Coffee";
-        else if (state.SetEquals(new HashSet<string>(new[] { "DripCoffee", "Espresso" })))
-            coffeeName = "DEBUG Coffee // Anne eli değmiş gibi";
         else
             coffeeName = "";
     }

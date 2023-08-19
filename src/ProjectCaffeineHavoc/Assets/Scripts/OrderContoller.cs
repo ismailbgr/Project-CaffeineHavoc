@@ -22,8 +22,7 @@ public class OrderContoller : MonoBehaviour
     "Vegan Caramel Iced Coffee",
     "Espresso",
     "Cold Brew",
-    "Drip Coffee",
-    "DEBUG Coffee // Anne eli değmiş gibi"
+    "Drip Coffee"
     };
 
 

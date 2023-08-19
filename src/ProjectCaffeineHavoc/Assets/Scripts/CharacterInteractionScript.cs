@@ -122,6 +122,14 @@ public class CharacterInteractionScript : MonoBehaviour
                         // filling a machines ingradient space can be done here in the future(like putting coffee beans to coffee grinder of putting ingradients to frenchpress)
                     }
                 }
+                else if(lookingObject.CompareTag("Customer")){
+                    
+                    heldItem.transform.SetParent(null); // empty the hend step1
+                    lookingObject.GetComponent<CustomerMovement>().is_picked_order = true;
+                    Destroy(heldItem); // delete the used item
+                    heldItem = null; 
+
+                }
                 else
                 { // we are not looking at an item or machine, than put the heldItem down.
                     //Debug.Log("putting down " + heldItem);
@@ -236,7 +244,7 @@ public class CharacterInteractionScript : MonoBehaviour
             coffeeHolderScript.addIngradient(itemIngra);
             coffeeHolderScript.transformToCoffee(); // checking if coffeholder is a coffee
             newItem = itemCH; // store the new created item
-            heldItem.transform.SetParent(null); // empty the hend step1
+            heldItem.transform.SetParent(null); // empty the hend step11
             heldItem = null; // empty the hend step2
             Destroy(itemIngra); // delete the used item
         }

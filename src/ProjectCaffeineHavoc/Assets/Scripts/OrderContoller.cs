@@ -26,12 +26,6 @@ public class OrderContoller : MonoBehaviour
     };
 
 
-
-
-
-
-
-
     public string coffeeName;
     public string orderCoffeeName;
     public GameObject HUD;
@@ -53,7 +47,6 @@ public class OrderContoller : MonoBehaviour
     void Update()
     {
 
-        //Debug.Log(Random.Range(0, coffeeList.Length));
 
         // player elinde bir şey tutuyorsa
         GameObject heldItem = playerInteractionScript.heldItem;

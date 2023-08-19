@@ -37,19 +37,21 @@ public class CustomerMovement : MonoBehaviour
 
     void Update()
     {   
+        // Müşteri son OrderPlace'e ulaştığında yok edin.
         if(destination_number == order_places.Count - 1) {
             //5 saniye sonra müşteriyi yok et.
             Invoke("DestroyObject", destroyDelay);
         }
 
+        // Müşteri sırada değilse ve sıradaki OrderPlace'e destinasyonu ayarlayın.
         if(!is_in_order) {
             animator.SetBool("isStanding", false);
             customer.SetDestination(order_places[destination_number].transform.position);
         }
 
         float distanceToDestination = GetDistanceXZ(transform.position, order_places[destination_number].transform.position);
-        //Debug.Log(distanceToDestination);
         
+        // eğer müşteri orderplace'e ulaştıysa
         if (distanceToDestination < threshold)
         {   
             is_in_order = true;
@@ -59,7 +61,7 @@ public class CustomerMovement : MonoBehaviour
             order_places[destination_number].GetComponent<CustomerCheck>().is_there_customer = true;
         } 
 
-        // Destination'daki OrderPlace objesinin is_there_customer'ı true ise destination_number'ı 1 arttır.
+        // Eğer Destinationda biri varsa hedefi destination_number+1 ile değiştir.
         if (order_places[destination_number].GetComponent<CustomerCheck>().is_there_customer == true)
         {   
             if(!is_in_order) {
@@ -69,6 +71,7 @@ public class CustomerMovement : MonoBehaviour
             }
         }
 
+        // Sıra ilerlediyse hedefi değiştir
         if (destination_number != 0 && destination_number != order_places.Count-1 && is_in_order && order_places[destination_number-1].GetComponent<CustomerCheck>().is_there_customer == false)
         {   
             destination_number -= 1;
@@ -79,17 +82,22 @@ public class CustomerMovement : MonoBehaviour
             threshold = 1.2f;
         }
 
-        if(is_in_order) { //karakterin yüzünü kameraya döndür. Smooth bir dönüş için slerp kullan.
+        if(is_in_order) 
+        { //karakterin yüzünü kameraya döndür. Smooth bir dönüş için slerp kullan.
             Vector3 direction = (mainCamera.transform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }        
 
-        if(is_in_order && destination_number == 0) {
+        // Eğer müşteri sıranın başındaysa siparişini alma hakkına sahip olur.
+        if(is_in_order && destination_number == 0)
+        {
             is_in_pickup_place = true;
         }
 
-        if(is_in_order && is_picked_order) {
+        // müşteri dükkandan ayrılır
+        if(is_in_order && is_picked_order)
+        {
             destination_number = order_places.Count - 1;
             is_in_order = false;
             customer.SetDestination(order_places[destination_number].transform.position);
@@ -113,7 +121,7 @@ public class CustomerMovement : MonoBehaviour
         // Sadece x ve z eksenlerine göre uzaklığı hesaplamak için y eksenlerini dikkate almayın.
         Vector2 pos1XZ = new Vector2(pos1.x, pos1.z);
         Vector2 pos2XZ = new Vector2(pos2.x, pos2.z);
-
+    
         // Sadece x ve z eksenlerine göre uzaklığı hesaplayın.
         float distanceXZ = Vector2.Distance(pos1XZ, pos2XZ);
 

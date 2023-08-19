@@ -63,6 +63,7 @@ public class HUDController : MonoBehaviour
 
     public void changeOrderText(string orderCoffeeName)
     {
+        // Order yazısını güncelle
         GameObject orderText = GameObject.Find("CurrentOrder");
         orderText.GetComponent<TMPro.TextMeshProUGUI>().text = "Current Order:\n" + orderCoffeeName;
     }

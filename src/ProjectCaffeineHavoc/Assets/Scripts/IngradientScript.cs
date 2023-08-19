@@ -13,7 +13,7 @@ public class IngradientScript : MonoBehaviour
                        ChocolateSyrup, CaramelSyrup, VanillaSyrup};
 
     public ingradients ingradientType; // what type of ingradient is this object
-    public HashSet<string> state = new HashSet<string>(); // what does this ingradient has as content(basically same as ingradientType[needed for coffee creation])
+    public HashSet<string> state = new HashSet<string>(); // what does this ingradient has as content
 
     void Start()
     {
@@ -21,7 +21,4 @@ public class IngradientScript : MonoBehaviour
         state.Add(ingradientType.ToString());
     }
 
-    void Update()
-    {
-    }
 }

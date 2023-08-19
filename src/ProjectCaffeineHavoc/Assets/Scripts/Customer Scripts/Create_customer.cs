@@ -15,6 +15,7 @@ public class Create_customer : MonoBehaviour
         GameObject[] initialCustomers = GameObject.FindGameObjectsWithTag("Customer");
         customer_count = initialCustomers.Length;
 
+        // müşteri sayısı 4 müşteriden az ise yeni müşteri oluştur.
         if(customer_count <= 4) {
             xPos = Random.Range(50, 100);
             zPos = Random.Range(50, 100);

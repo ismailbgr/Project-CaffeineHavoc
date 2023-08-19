@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11068654, g: 0.08546056, b: 0.08628462, a: 1}
+  m_IndirectSpecularColor: {r: 0.108270325, g: 0.08391779, b: 0.08506317, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -501,6 +501,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.465
       objectReference: {fileID: 0}
+    - target: {fileID: 4512010851545540, guid: b3406251c9c4b0144898ea460c924fb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512010851545540, guid: b3406251c9c4b0144898ea460c924fb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.038
+      objectReference: {fileID: 0}
     - target: {fileID: 4596316379418826, guid: b3406251c9c4b0144898ea460c924fb8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2739662
@@ -556,6 +564,14 @@ PrefabInstance:
     - target: {fileID: 4734385302916140, guid: b3406251c9c4b0144898ea460c924fb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992719376238236, guid: b3406251c9c4b0144898ea460c924fb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992719376238236, guid: b3406251c9c4b0144898ea460c924fb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.714
       objectReference: {fileID: 0}
     - target: {fileID: 23547145291015448, guid: b3406251c9c4b0144898ea460c924fb8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3405,7 +3421,6 @@ GameObject:
   - component: {fileID: 1041776489}
   - component: {fileID: 1041776488}
   - component: {fileID: 1041776487}
-  - component: {fileID: 1041776491}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -3467,13 +3482,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1
   m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!4 &1041776490
 Transform:
   m_ObjectHideFlags: 0
@@ -3490,22 +3505,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1041776491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041776486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1bc4d97a3c4d54e80f46ebf130625f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  lookingObject: {fileID: 0}
 --- !u!1001 &1073085659
 PrefabInstance:
   m_ObjectHideFlags: 0

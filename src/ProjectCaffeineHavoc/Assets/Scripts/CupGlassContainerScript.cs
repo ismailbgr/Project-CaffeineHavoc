@@ -10,20 +10,13 @@ public class CupGlassContainerScript : MonoBehaviour
     public string coffeeName = "";
 
 
-    public HashSet<string> state = new HashSet<string>(); // what does this coffeeholder has as ingradient in it.
+    public HashSet<string> state = new HashSet<string>(); // coffeeholder ingradient list
 
-    private void Start()
-    {
-    }
-
-    // ######################## ######################## ######################## ######################## ######################## //
 
     public void Update()
     {
         transformToCoffee();
     }
-    
-    // ######################## ######################## ######################## ######################## ######################## //
 
     public void addIngradient(GameObject ingradient)
     { // character is putting ingradients content inside this coffeeHolder object(like adding hot water in to glass with coffee in it)
@@ -47,16 +40,13 @@ public class CupGlassContainerScript : MonoBehaviour
         {
             lookedCoffeeHolderScript.state.Add(ingradient);
         }
-        lookedCoffeeHolderScript.transformToCoffee(); // checking if coffeholder is a coffee
+        lookedCoffeeHolderScript.transformToCoffee();
 
         // empty the held coffeeHolder.
         state = new HashSet<string>();
         coffeeName = "";
     }
 
-    // ######################## ######################## ######################## ######################## ######################## //
-
-    // Bir bardaktaki kar���m�n hangi kahveye d�n��t���n� bulabilmek i�in string coffeeName; diye bir �ey tutulabilir belki.
     public void transformToCoffee()
     { // always checking if any of coffeeHolders created coffe with ingradients it has inside it
         if (state.SetEquals(new HashSet<string>(new[] { "Espresso", "FrothedMilk", "VanillaSyrup" })))

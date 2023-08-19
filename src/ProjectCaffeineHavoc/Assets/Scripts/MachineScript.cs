@@ -21,9 +21,8 @@ public class MachineScript : MonoBehaviour
                             IceCloset,
                             Trash,
                             Container};
-    public machines machineType; // what type of machine is this object
+    public machines machineType;
 
-    // ######################## ######################## ######################## ######################## ######################## ######################## //
 
     private void Start()
     {
@@ -40,11 +39,10 @@ public class MachineScript : MonoBehaviour
         }
     }
 
-    // ######################## ######################## ######################## ######################## ######################## ######################## //
 
     public void useMachine() // machines that are used with empty hand
     {
-
+        //failsafe ve işimizi ileride kolaylaştırma amaçlı burada bırakıldı. eğer ileride böyle bir makine eklenirse burası dolacak.
     }
 
     public void fillGlass() // machines that are used with glass/cup/container in hand
@@ -60,7 +58,6 @@ public class MachineScript : MonoBehaviour
         }
         else if (machineType == machines.Kettle)
         {
-            //Debug.Log("add hot water to player.heldItem"); // heldItemScript.addIngradient(Hot water ingradient)
             heldItemScript.state.Add("HotWater");
         }
         else if (machineType == machines.IceCloset)
@@ -73,38 +70,28 @@ public class MachineScript : MonoBehaviour
         }
         else if (machineType == machines.EspressoMachine)
         {
-            //Debug.Log("add espresso to player.heldItem"); // heldItemScript.addIngradient(espresso ingradient)
             heldItemScript.state.Add("Espresso");
         }
         else if (machineType == machines.SyrupDispenser)
         {
-            //Debug.Log("add syrup player.heldItem"); // heldItemScript.addIngradient(syrup ingradient)
             heldItemScript.state.Add(syrupType);
         }
         else if (machineType == machines.FrenchPress)
         {
-            //Debug.Log("add frenchpress player.heldItem"); // heldItemScript.addIngradient(frencpress ingradient)
             heldItemScript.state.Add("Frenchpress");
         }
         else if (machineType == machines.DripCoffeeMaker)
         {
-            //Debug.Log("add drip coffee player.heldItem"); // heldItemScript.addIngradient(drip coffee ingradient)
             heldItemScript.state.Add("DripCoffee");
         }
         else if (machineType == machines.Trash)
         {
-            //Debug.Log("delete player.heldItem"); // heldItemScript.addIngradient(drip coffee ingradient)
-
-            // playerScript.heldItem.transform.SetParent(null);
-            // Destroy(playerScript.heldItem);
-            // playerScript.heldItem = null;
 
             heldItemScript.state = new HashSet<string>();
         }
 
         else if (machineType == machines.MilkFrother) // froth the milk only if character is holding a coffeeHolder with only milk or veganmilk in it.
         {
-            //Debug.Log("froth the milk if player.heldItem.state equals to {Milk} or {VeganMilk}, make character.heldItem = same coffeeholder with same milks frothed version");
             if (heldItemScript.state.SetEquals(new HashSet<string>(new[] { "Milk" })))
             {
                 heldItemScript.state = new HashSet<string>(new[] { "FrothedMilk" });

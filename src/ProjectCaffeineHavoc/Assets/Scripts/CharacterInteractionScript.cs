@@ -40,6 +40,7 @@ public class CharacterInteractionScript : MonoBehaviour
     {
         mouseAction();
 
+        // Handbook açma kapama
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (isHandBookOpen)
@@ -61,11 +62,6 @@ public class CharacterInteractionScript : MonoBehaviour
             updateHeldItem();
         }
 
-        if(destroy_item) {
-            destroy_item = false;
-            Destroy(heldItem);
-            heldItem = null;
-        }
     }
 
     // ######################## ######################## ######################## ######################## ######################## ######################## //
@@ -75,33 +71,29 @@ public class CharacterInteractionScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             lookingObject = LookingAtObject();
-            //Debug.Log("looking at: " + lookingObject + " while holding: " + heldItem);
 
             if (lookingObject != null && (heldItem == null))
             { // if we are not holding anything and looking at something: pick up/use that thing
-                //Debug.Log("functions with empyt hand.");
                 if (lookingObject.CompareTag("Ingradient") || lookingObject.CompareTag("CoffeeHolder"))
                 {
-                    //Debug.Log("picking up " + lookingObject);
                     pickUpItem(lookingObject);
                 }
 
+                // ileride boş elle kullanılacak makine eklenirse bu mantığı kullanacak
                 else if (lookingObject.CompareTag("Machine"))
                 {
-                    //Debug.Log("using " + lookingObject);
                     if (Vector3.Distance(lookingObject.transform.position, transform.position) < 3f)
                     {
                         useMachineScript = lookingObject.GetComponent<MachineScript>();
                         useMachineScript.useMachine();
                     }
                 }
+
             }
             else if (lookingObject != null && heldItem != null)
             { // if we are holding something and looking at something: 
-                //Debug.Log("functions with full hand.");
                 if (lookingObject.CompareTag("Ingradient") || lookingObject.CompareTag("CoffeeHolder"))
-                { // if we are looking at something that can be merged: merge lookingObject with heldItem
-                  //Debug.Log("mixing " + heldItem + " with " + lookingObject);
+                { // kahvenin içine malzeme ekleme
                     if (Vector3.Distance(lookingObject.transform.position, transform.position) < 3f)
                     {
                         putInItem(heldItem, lookingObject);
@@ -124,7 +116,7 @@ public class CharacterInteractionScript : MonoBehaviour
                 }
                 else if(lookingObject.CompareTag("Customer")){
                     
-                    heldItem.transform.SetParent(null); // empty the hend step1
+                    heldItem.transform.SetParent(null);
                     lookingObject.GetComponent<CustomerMovement>().is_picked_order = true;
                     Destroy(heldItem); // delete the used item
                     heldItem = null; 
@@ -132,7 +124,6 @@ public class CharacterInteractionScript : MonoBehaviour
                 }
                 else
                 { // we are not looking at an item or machine, than put the heldItem down.
-                    //Debug.Log("putting down " + heldItem);
                     putDownItem();
                 }
             }
@@ -144,7 +135,7 @@ public class CharacterInteractionScript : MonoBehaviour
     // ######################## ######################## ######################## ######################## ######################## ######################## //
 
     public GameObject LookingAtObject() // return looking item
-    { // return the object that character is looking
+    {
         Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -164,6 +155,7 @@ public class CharacterInteractionScript : MonoBehaviour
         if (heldItem.CompareTag("CoffeeHolder"))
         {
             coffeeHolderScript = heldItem.GetComponent<CupGlassContainerScript>();
+            // ice prefabı için ayrı bir durum
             if (coffeeHolderScript.state.SetEquals(new HashSet<string>(new[] { "Ice" })))
             {
                 heldItem.transform.rotation = Quaternion.Euler(0f, 225f, 0f);
@@ -172,23 +164,6 @@ public class CharacterInteractionScript : MonoBehaviour
         }
             heldItem.transform.rotation = Quaternion.Euler(270f, 235f, 0f);
     }
-
-    /* FOR DEBUGGING AT updateHeldItem()
-    if (heldItem.CompareTag("CoffeeHolder"))
-    {
-        string logMessage = "";
-        CupGlassContainerScript ffff = heldItem.GetComponent<CupGlassContainerScript>();
-        logMessage = "CoffeeHolder state:" + string.Join(", ", ffff.state);
-        Debug.Log(logMessage);
-    }
-    else if (heldItem.CompareTag("Ingradient"))
-    {
-        string logMessage = "";
-        IngradientScript ffff = heldItem.GetComponent<IngradientScript>();
-        logMessage = "Ingradient state:" + string.Join(", ", ffff.state);
-        Debug.Log(logMessage);
-    }
-    */
 
     // ######################## ######################## ######################## ######################## ######################## ######################## //
 
@@ -214,6 +189,7 @@ public class CharacterInteractionScript : MonoBehaviour
                 if (heldItem.CompareTag("CoffeeHolder"))
                 {
                     coffeeHolderScript = heldItem.GetComponent<CupGlassContainerScript>();
+                    // ice prefabı için ayrı bir durum
                     if (coffeeHolderScript.state.SetEquals(new HashSet<string>(new[] { "Ice" })))
                     {
                         heldItem.transform.rotation = Quaternion.Euler(0f, 225f, 0f);
@@ -244,32 +220,43 @@ public class CharacterInteractionScript : MonoBehaviour
             coffeeHolderScript.addIngradient(itemIngra);
             coffeeHolderScript.transformToCoffee(); // checking if coffeholder is a coffee
             newItem = itemCH; // store the new created item
-            heldItem.transform.SetParent(null); // empty the hend step11
-            heldItem = null; // empty the hend step2
-            Destroy(itemIngra); // delete the used item
+            heldItem.transform.SetParent(null);
+            heldItem = null;
+            Destroy(itemIngra);
         }
         else if (item1.CompareTag("CoffeeHolder") && item2.CompareTag("CoffeeHolder"))
         { // if item1 and item2 are coffeeHolder, merge them into which the character is looking
             coffeeHolderScript = item1.GetComponent<CupGlassContainerScript>();
             coffeeHolderScript.pourInto(item2); // pour item1 into item2, now we will hold the empty coffeeHolder
             transformPrefabNotHeldItem(item2);
-            newItem = item1; // store the new created item
-            heldItem.transform.SetParent(null); // empty the hend step1
-            heldItem = null; // empty the hend step2
+            newItem = item1;
+            heldItem.transform.SetParent(null);
+            heldItem = null;
         }
         else
         { // if both item1 and item2 are ingradient do nothing
             return;
         }
 
-        heldItem = newItem; // hold new created item step1
-        heldItem.transform.SetParent(transform); // hold new created item step2
+        heldItem = newItem;
+        heldItem.transform.SetParent(transform);
     }
 
     // ######################## ######################## ######################## ######################## ######################## ######################## //
 
+    // elimizdeki kahvelerin içeriklerine göre prefabları değiştiriyoruz
+    // eğer elimizdeki kahvede
+    // hiçbir şey yoksa boş kahve prefabını
+    // sadece buz varsa buzlu kahve prefabını
+    // sadece su varsa su bardağı prefabını
+    // sadece kahve varsa kahve bardağı prefabını
+    // sadece süt varsa sütlü bardak prefabını
+
+    // diğer prefabler karışıma göre koyulaşıyor
+
     public void transformPrefab()
     {
+
         if (heldItem != null && heldItem.CompareTag("CoffeeHolder"))
         {
             prefabSwapScript = heldItem.GetComponent<CupGlassContainerScript>();

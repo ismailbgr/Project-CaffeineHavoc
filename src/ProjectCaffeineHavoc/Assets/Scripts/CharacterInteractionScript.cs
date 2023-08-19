@@ -114,7 +114,7 @@ public class CharacterInteractionScript : MonoBehaviour
                         // filling a machines ingradient space can be done here in the future(like putting coffee beans to coffee grinder of putting ingradients to frenchpress)
                     }
                 }
-                else if(lookingObject.CompareTag("Customer")){
+                else if(lookingObject.CompareTag("Customer") && heldItem.CompareTag("CoffeeHolder")){
                     
                     heldItem.transform.SetParent(null);
                     lookingObject.GetComponent<CustomerMovement>().is_picked_order = true;

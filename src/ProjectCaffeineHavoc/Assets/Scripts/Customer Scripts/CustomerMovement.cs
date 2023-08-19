@@ -13,7 +13,7 @@ public class CustomerMovement : MonoBehaviour
     // create only positive number
     public bool is_in_order = false; // müşteri sırada mı?
     public List<GameObject> order_places;
-    public float threshold = 1.2f;
+    public float threshold = 0.6f;
 
     public bool is_in_pickup_place = false; // müşteri sipariş sırasında mı?
     public bool is_picked_order = false; // müşteri siparişi aldı mı?
@@ -50,7 +50,7 @@ public class CustomerMovement : MonoBehaviour
         }
 
         float distanceToDestination = GetDistanceXZ(transform.position, order_places[destination_number].transform.position);
-        
+
         // eğer müşteri orderplace'e ulaştıysa
         if (distanceToDestination < threshold)
         {   
@@ -79,7 +79,7 @@ public class CustomerMovement : MonoBehaviour
             customer.SetDestination(order_places[destination_number].transform.position);
             customer.speed = 1f;
             order_places[destination_number+1].GetComponent<CustomerCheck>().is_there_customer = false;
-            threshold = 1.2f;
+            threshold = 0.6f;
         }
 
         if(is_in_order) 
